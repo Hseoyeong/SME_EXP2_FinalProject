@@ -82,7 +82,13 @@ $$r_i(\mathbf{x}) = w_i \cdot \left( \sqrt{(x - BS_{x,i})^2 + (y - BS_{y,i})^2} 
 
 ### 2.5 HDOP 기반 기하학적 정밀도 연산 및 점수 평가
 추정된 가설 좌표를 추가 검증하기 위해 HDOP 연산 및 하이브리드 평가 함수를 실행한다. 먼저, 추정된 가설 좌표 $\mathbf{x} = [x, y]^T$와 가설을 세우는 데 사용된 3개의 샘플 앵커 간의 기하학적 편미분 성분으로 구성된 야코비안 설계 행렬 $A$를 설계한다.
-$$A = \begin{bmatrix} \frac{x - BS_{x,1}}{\rho_1} & \frac{y - BS_{y,1}}{\rho_1} \\ \frac{x - BS_{x,2}}{\rho_2} & \frac{y - BS_{y,2}}{\rho_2} \\ \frac{x - BS_{x,3}}{\rho_3} & \frac{y - BS_{y,3}}{\rho_3} \end{bmatrix} \quad \left(\text{단, } \rho_i = \sqrt{(x - BS_{x,i})^2 + (y - BS_{y,i})^2}\right)$$
+$$
+A = \begin{bmatrix} 
+\frac{x - BS_{x,1}}{\rho_1} & \frac{y - BS_{y,1}}{\rho_1} \\ 
+\frac{x - BS_{x,2}}{\rho_2} & \frac{y - BS_{y,2}}{\rho_2} \\ 
+\frac{x - BS_{x,3}}{\rho_3} & \frac{y - BS_{y,3}}{\rho_3} 
+\end{bmatrix} \quad \left(\text{단, } \rho_i = \sqrt{(x - BS_{x,i})^2 + (y - BS_{y,i})^2}\right)
+$$
 
 이 행렬을 기반으로 오차 공분산의 기준이 되는 공액 행렬 $H$를 산출하고, X축과 Y축의 대각 성분의 합에 제곱근을 취하여 최종 **HDOP(기하학적 정밀도 저하율)** 지표를 도출한다.
 $$H = (A^T A)^{-1}$$
