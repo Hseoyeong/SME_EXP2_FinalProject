@@ -87,7 +87,8 @@ A = \begin{bmatrix}
 \frac{x - BS_{x,1}}{\rho_1} & \frac{y - BS_{y,1}}{\rho_1} \\ 
 \frac{x - BS_{x,2}}{\rho_2} & \frac{y - BS_{y,2}}{\rho_2} \\ 
 \frac{x - BS_{x,3}}{\rho_3} & \frac{y - BS_{y,3}}{\rho_3} 
-\end{bmatrix} \quad \left(\text{단, } \rho_i = \sqrt{(x - BS_{x,i})^2 + (y - BS_{y,i})^2}\right)
+\end{bmatrix} 
+\quad \left(\text{단, } \rho_i = \sqrt{(x - BS_{x,i})^2 + (y - BS_{y,i})^2}\right)
 $$
 
 이 행렬을 기반으로 오차 공분산의 기준이 되는 공액 행렬 $H$를 산출하고, X축과 Y축의 대각 성분의 합에 제곱근을 취하여 최종 **HDOP(기하학적 정밀도 저하율)** 지표를 도출한다.
